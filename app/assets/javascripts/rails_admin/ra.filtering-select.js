@@ -111,6 +111,10 @@
         };
       } else if (typeof source === 'string') {
         return function(request, response) {
+          data = self.options.createQuery(request.term);
+          if (!data) {
+            return response([]);
+          }
           if (this.xhr) {
             this.xhr.abort();
           }
