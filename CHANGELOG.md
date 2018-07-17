@@ -2,14 +2,52 @@
 
 ## [Unreleased](https://github.com/sferik/rails_admin/tree/HEAD)
 
-[Full Changelog](https://github.com/sferik/rails_admin/compare/v1.2.0...HEAD)
+[Full Changelog](https://github.com/sferik/rails_admin/compare/v1.3.0...HEAD)
+
+### Added
+- Support for ActiveStorage([#2990](https://github.com/sferik/rails_admin/issues/2990), [#3037](https://github.com/sferik/rails_admin/pull/3037))
+- Support for multiple file upload for ActiveStorage and CarrierWave ([5bb2d375](https://github.com/sferik/rails_admin/commit/5bb2d375a236268e51c7e8682c2d110d9e52970f))
+- Support for CanCanCan 2.x([a32d49e4](https://github.com/sferik/rails_admin/commit/a32d49e4b96944905443588a1216b3362ee64c1a), [#2901](https://github.com/sferik/rails_admin/issues/2901))
+- Support for jquery-ui-rails 6.x([#2951](https://github.com/sferik/rails_admin/issues/2951), [#3003](https://github.com/sferik/rails_admin/issues/3003))
+
+### Fixed
+- Make code reloading work([#3041](https://github.com/sferik/rails_admin/pull/3041))
+- Improved support for Rails API mode, requiring needed middlewares in engine's initializer([#2919](https://github.com/sferik/rails_admin/issues/2919), [#3006](https://github.com/sferik/rails_admin/pull/3006))
+- Make the link text to uploaded file shorter, instead of showing full url([#2983](https://github.com/sferik/rails_admin/pull/2983))
+- Fix duplication of filters on browser back([#2998](https://github.com/sferik/rails_admin/pull/2998))
+- Fix "can't modify frozen array" exception on code reload([#2999](https://github.com/sferik/rails_admin/pull/2999))
+- Fix incorrectly comparing numeric columns with empty string when handling blank operator([#3007](https://github.com/sferik/rails_admin/pull/3007))
+
+
+## [1.3.0](https://github.com/sferik/rails_admin/tree/v1.3.0) - 2018-02-18
+
+[Full Changelog](https://github.com/sferik/rails_admin/compare/v1.2.0...v1.3.0)
+
+### Added
+- Configurability for forgery protection setting([#2989](https://github.com/sferik/rails_admin/pull/2989))
+- Configurability for the number of audit records displayed into dashboard([#2982](https://github.com/sferik/rails_admin/pull/2982))
+- Add limited pagination mode, which doesn't require count query([#2968](https://github.com/sferik/rails_admin/pull/2968))
+- Prettier output of JSON field value([#2937](https://github.com/sferik/rails_admin/pull/2937), [#2973](https://github.com/sferik/rails_admin/pull/2973), [#2980](https://github.com/sferik/rails_admin/pull/2980))
+- Add markdown field support through SimpleMDE([#2949](https://github.com/sferik/rails_admin/pull/2949))
+- Checkboxes for bulk actions in index page can be turned off now([#2917](https://github.com/sferik/rails_admin/pull/2917))
+
+### Fixed
+- Parse JS translations as JSON([#2925](https://github.com/sferik/rails_admin/pull/2925))
+- Re-selecting an item after unselecting has no effect in filtering-multiselect([#2912](https://github.com/sferik/rails_admin/issues/2912))
+- Stop memoization of datetime parser to handle locale changes([#2824](https://github.com/sferik/rails_admin/pull/2824))
+- Filters for ActiveRecord Enum field behaved incorrectly for enums whose labels are different from values([#2971](https://github.com/sferik/rails_admin/pull/2971))
+- Client-side required validation was not enforced in filtering-select widget([#2905](https://github.com/sferik/rails_admin/pull/2905))
+- Filter refresh button was broken([#2890](https://github.com/sferik/rails_admin/pull/2890))
+
+### Security
+- Fix XSS vulnerability in filter and multi-select widget([#2985](https://github.com/sferik/rails_admin/issues/2985), [44f09ed7](https://github.com/sferik/rails_admin/commit/44f09ed72b5e0e917a5d61bd89c48d97c494b41c))
 
 
 ## [1.2.0](https://github.com/sferik/rails_admin/tree/v1.2.0) - 2017-05-31
 
 [Full Changelog](https://github.com/sferik/rails_admin/compare/v1.1.1...v1.2.0)
 
-#### Added
+### Added
 - Add ILIKE support for PostgreSQL/PostGIS adapter, multibyte downcase for other adapters([#2766](https://github.com/sferik/rails_admin/pull/2766))
 - Support for UUID query([#2766](https://github.com/sferik/rails_admin/pull/2766))
 - Support for Haml 5([#2840](https://github.com/sferik/rails_admin/pull/2840), [#2870](https://github.com/sferik/rails_admin/pull/2870), [#2877](https://github.com/sferik/rails_admin/pull/2877))

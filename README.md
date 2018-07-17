@@ -2,17 +2,17 @@
 
 [![Gem Version](https://img.shields.io/gem/v/rails_admin.svg)][gem]
 [![Build Status](https://img.shields.io/travis/sferik/rails_admin.svg)][travis]
-[![Dependency Status](https://img.shields.io/gemnasium/sferik/rails_admin.svg)][gemnasium]
-[![Code Climate](https://img.shields.io/codeclimate/github/sferik/rails_admin.svg)][codeclimate]
 [![Coverage Status](https://img.shields.io/coveralls/sferik/rails_admin.svg)][coveralls]
 [![Inline docs](http://inch-ci.org/github/sferik/rails_admin.svg)][inch]
+[![Code Climate](https://codeclimate.com/github/sferik/rails_admin.svg)][codeclimate]
+[![SemVer](https://api.dependabot.com/badges/compatibility_score?dependency-name=rails_admin&package-manager=bundler&version-scheme=semver)][semver]
 
 [gem]: https://rubygems.org/gems/rails_admin
 [travis]: https://travis-ci.org/sferik/rails_admin
-[gemnasium]: https://gemnasium.com/sferik/rails_admin
-[codeclimate]: https://codeclimate.com/github/sferik/rails_admin
 [coveralls]: https://coveralls.io/r/sferik/rails_admin
 [inch]: http://inch-ci.org/github/sferik/rails_admin
+[codeclimate]: https://codeclimate.com/github/sferik/rails_admin
+[semver]: https://dependabot.com/compatibility-score.html?dependency-name=rails_admin&package-manager=bundler&version-scheme=semver
 
 RailsAdmin is a Rails engine that provides an easy-to-use interface for managing your data.
 
@@ -20,9 +20,9 @@ RailsAdmin is a Rails engine that provides an easy-to-use interface for managing
 
 ### [Action required] Security issue
 
-**RailsAdmin 1.0.0 and 1.1.0 have been reported to have CSRF vulnerability with default setup.** We strongly recommend that you upgrade RailsAdmin to 1.1.1 or later as soon as possible, if you are on these versions. See [b13e879e](https://github.com/sferik/rails_admin/commit/b13e879eb93b661204e9fb5e55f7afa4f397537a) for the detail.
+**RailsAdmin prior to 1.3.0 have been reported to have XSS vulnerability.** We strongly recommend that you upgrade RailsAdmin to 1.3.0 or later as soon as possible, if you are on those versions. See [#2985](https://github.com/sferik/rails_admin/issues/2985) for the detail.
 
-This problem was reported by SourceClear, Inc.
+Also, 1.0.0 and 1.1.0 is known to have [CSRF vulnerability](https://github.com/sferik/rails_admin/commit/b13e879eb93b661204e9fb5e55f7afa4f397537a), too.
 
 
 ## Features
@@ -42,7 +42,7 @@ This problem was reported by SourceClear, Inc.
 
 ## Installation
 
-1. On your gemfile: `gem 'rails_admin', '~> 1.2'`
+1. On your gemfile: `gem 'rails_admin', '~> 1.3'`
 2. Run `bundle install`
 3. Run `rails g rails_admin:install`
 4. Provide a namespace for the routes when asked

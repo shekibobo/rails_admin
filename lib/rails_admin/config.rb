@@ -62,6 +62,10 @@ module RailsAdmin
       # set parent controller
       attr_accessor :parent_controller
 
+      # set settings for `protect_from_forgery` method
+      # By default, it raises exception upon invalid CSRF tokens
+      attr_accessor :forgery_protection_settings
+
       # Stores model configuration objects in a hash identified by model's class
       # name.
       #
@@ -203,7 +207,7 @@ module RailsAdmin
 
       # pool of all found model names from the whole application
       def models_pool
-        excluded = (excluded_models.collect(&:to_s) + %w(RailsAdmin::History PaperTrail::Version PaperTrail::VersionAssociation))
+        excluded = (excluded_models.collect(&:to_s) + %w(RailsAdmin::History PaperTrail::Version PaperTrail::VersionAssociation ActiveStorage::Attachment ActiveStorage::Blob))
 
         (viable_models - excluded).uniq.sort
       end
@@ -288,6 +292,7 @@ module RailsAdmin
         @navigation_static_links = {}
         @navigation_static_label = nil
         @parent_controller = '::ActionController::Base'
+        @forgery_protection_settings = {with: :exception}
         RailsAdmin::Config::Actions.reset
       end
 
@@ -297,6 +302,14 @@ module RailsAdmin
       def reset_model(model)
         key = model.is_a?(Class) ? model.name.to_sym : model.to_sym
         @registry.delete(key)
+      end
+
+      # Reset all models configuration
+      # Used to clear all configurations when reloading code in development.
+      # @see RailsAdmin::Engine
+      # @see RailsAdmin::Config.registry
+      def reset_all_models
+        @registry = {}
       end
 
       # Get all models that are configured as visible sorted by their weight and label.
